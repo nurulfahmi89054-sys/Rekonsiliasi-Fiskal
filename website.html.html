@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Website Rekonsiliasi Fiskal</title>
+
+<!-- FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- ICON -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+<!-- AOS -->
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#f1f5f9;
+color:#1e293b;
+overflow-x:hidden;
+}
+
+/* SCROLL */
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-thumb{
+background:#2563eb;
+border-radius:20px;
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(15,23,42,0.92);
+backdrop-filter:blur(12px);
+z-index:1000;
+}
+
+.logo{
+font-size:30px;
+font-weight:700;
+color:white;
+}
+
+nav ul{
+display:flex;
+gap:25px;
+list-style:none;
+}
+
+nav ul li a{
+color:white;
+text-decoration:none;
+font-weight:500;
+transition:0.3s;
+}
+
+nav ul li a:hover{
+color:#38bdf8;
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+background:
+linear-gradient(rgba(15,23,42,0.82),rgba(15,23,42,0.92)),
+url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1600');
+background-size:cover;
+background-position:center;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:130px 8%;
+position:relative;
+overflow:hidden;
+color:white;
+}
+
+/* BULAT ANIMASI */
+
+.circle{
+position:absolute;
+border-radius:50%;
+background:rgba(255,255,255,0.07);
+animation:float 8s infinite linear;
+}
+
+.circle1{
+width:300px;
+height:300px;
+top:-100px;
+left:-100px;
+}
+
+.circle2{
+width:200px;
+height:200px;
+bottom:50px;
+right:-50px;
+animation-delay:1s;
+}
+
+.circle3{
+width:150px;
+height:150px;
+top:50%;
+left:10%;
+animation-delay:2s;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0px) rotate(0deg);
+}
+
+50%{
+transform:translateY(-20px) rotate(180deg);
+}
+
+100%{
+transform:translateY(0px) rotate(360deg);
+}
+
+}
+
+/* KARAKTER */
+
+.character{
+position:absolute;
+width:140px;
+animation:characterFloat 4s ease-in-out infinite;
+}
+
+.character1{
+left:5%;
+bottom:10%;
+}
+
+.character2{
+right:5%;
+bottom:10%;
+animation-delay:1s;
+}
+
+@keyframes characterFloat{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-20px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+/* HERO CONTENT */
+
+.hero-content{
+max-width:950px;
+z-index:10;
+}
+
+.badge{
+display:inline-block;
+padding:12px 25px;
+border-radius:999px;
+background:rgba(255,255,255,0.12);
+backdrop-filter:blur(10px);
+margin-bottom:25px;
+font-size:15px;
+}
+
+.hero-content h1{
+font-size:85px;
+line-height:1.1;
+margin-bottom:25px;
+font-weight:800;
+}
+
+.hero-content h1 span{
+color:#38bdf8;
+}
+
+.hero-content p{
+font-size:22px;
+line-height:2;
+color:#e2e8f0;
+margin-bottom:40px;
+}
+
+.hero-buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:18px 40px;
+border-radius:15px;
+background:#2563eb;
+color:white;
+text-decoration:none;
+font-weight:600;
+transition:0.4s;
+box-shadow:0 10px 25px rgba(37,99,235,0.4);
+}
+
+.btn:hover{
+transform:translateY(-5px);
+background:#1d4ed8;
+}
+
+.btn2{
+background:white;
+color:#0f172a;
+}
+
+.btn2:hover{
+background:#e2e8f0;
+}
+
+/* SECTION */
+
+section{
+padding:110px 8%;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:70px;
+}
+
+.section-title h2{
+font-size:55px;
+margin-bottom:15px;
+}
+
+.section-title p{
+font-size:18px;
+color:#64748b;
+}
+
+/* GRID */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+}
+
+/* CARD */
+
+.card{
+background:white;
+padding:40px;
+border-radius:30px;
+box-shadow:0 10px 35px rgba(0,0,0,0.08);
+transition:0.4s;
+position:relative;
+overflow:hidden;
+}
+
+.card::before{
+content:'';
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:6px;
+background:linear-gradient(to right,#2563eb,#38bdf8);
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card i{
+font-size:55px;
+margin-bottom:25px;
+color:#2563eb;
+}
+
+.card h3{
+font-size:30px;
+margin-bottom:20px;
+}
+
+.card p{
+line-height:2;
+color:#475569;
+}
+
+.card ul{
+padding-left:20px;
+line-height:2.2;
+color:#475569;
+}
+
+/* FLEX */
+
+.flex{
+display:flex;
+gap:30px;
+flex-wrap:wrap;
+}
+
+/* BOX */
+
+.box{
+flex:1;
+min-width:320px;
+padding:45px;
+border-radius:30px;
+color:white;
+}
+
+.blue{
+background:linear-gradient(135deg,#2563eb,#1d4ed8);
+}
+
+.green{
+background:linear-gradient(135deg,#059669,#10b981);
+}
+
+.red{
+background:linear-gradient(135deg,#dc2626,#ef4444);
+}
+
+.orange{
+background:linear-gradient(135deg,#ea580c,#fb923c);
+}
+
+.box h3{
+font-size:35px;
+margin-bottom:25px;
+}
+
+.box ul{
+padding-left:20px;
+line-height:2.2;
+}
+
+/* TIMELINE */
+
+.timeline{
+position:relative;
+max-width:1000px;
+margin:auto;
+}
+
+.timeline::before{
+content:'';
+position:absolute;
+left:50%;
+top:0;
+width:4px;
+height:100%;
+background:#2563eb;
+transform:translateX(-50%);
+}
+
+.timeline-item{
+display:flex;
+justify-content:flex-start;
+margin:50px 0;
+position:relative;
+}
+
+.timeline-item:nth-child(even){
+justify-content:flex-end;
+}
+
+.timeline-content{
+width:42%;
+background:white;
+padding:30px;
+border-radius:25px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.timeline-content h3{
+margin-bottom:15px;
+}
+
+.timeline-content p{
+line-height:1.9;
+color:#475569;
+}
+
+.timeline-icon{
+position:absolute;
+left:50%;
+transform:translateX(-50%);
+width:70px;
+height:70px;
+border-radius:50%;
+background:#2563eb;
+display:flex;
+justify-content:center;
+align-items:center;
+color:white;
+font-size:28px;
+box-shadow:0 10px 25px rgba(37,99,235,0.4);
+}
+
+/* TABLE */
+
+.table-container{
+overflow-x:auto;
+background:white;
+border-radius:30px;
+box-shadow:0 10px 35px rgba(0,0,0,0.08);
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+min-width:1000px;
+}
+
+table th{
+background:#1e3a8a;
+color:white;
+padding:22px;
+}
+
+table td{
+padding:18px;
+border-bottom:1px solid #e2e8f0;
+text-align:center;
+}
+
+table tr:hover{
+background:#f8fafc;
+}
+
+/* FORMULA */
+
+.formula-box{
+background:#0f172a;
+padding:70px;
+border-radius:35px;
+color:white;
+text-align:center;
+}
+
+.formula-box h3{
+font-size:40px;
+margin-bottom:30px;
+}
+
+.formula{
+font-size:24px;
+line-height:2.5;
+}
+
+.result{
+font-size:45px;
+font-weight:700;
+color:#38bdf8;
+}
+
+/* QUIZ */
+
+.quiz-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+}
+
+.quiz-card{
+background:white;
+padding:35px;
+border-radius:25px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.quiz-card h3{
+font-size:24px;
+margin-bottom:20px;
+}
+
+.quiz-card button{
+padding:14px 25px;
+border:none;
+background:#2563eb;
+color:white;
+border-radius:12px;
+cursor:pointer;
+font-weight:600;
+transition:0.3s;
+}
+
+.quiz-card button:hover{
+background:#1d4ed8;
+}
+
+.answer{
+display:none;
+margin-top:20px;
+font-weight:600;
+line-height:1.8;
+color:#059669;
+}
+
+/* FOOTER */
+
+footer{
+background:#0f172a;
+color:white;
+padding:80px 8%;
+text-align:center;
+margin-top:80px;
+}
+
+footer h3{
+font-size:38px;
+margin-bottom:20px;
+}
+
+footer p{
+line-height:2;
+color:#cbd5e1;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.hero-content h1{
+font-size:50px;
+}
+
+.hero-content p{
+font-size:18px;
+}
+
+.character{
+width:90px;
+}
+
+nav{
+flex-direction:column;
+gap:20px;
+}
+
+nav ul{
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.timeline::before{
+left:20px;
+}
+
+.timeline-item,
+.timeline-item:nth-child(even){
+justify-content:flex-start;
+padding-left:70px;
+}
+
+.timeline-content{
+width:100%;
+}
+
+.timeline-icon{
+left:20px;
+}
+
+.section-title h2{
+font-size:38px;
+}
+
+.formula{
+font-size:18px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">
+Rekonsiliasi Fiskal
+</div>
+
+<ul>
+
+<li><a href="#pengertian">Pengertian</a></li>
+<li><a href="#penyebab">Penyebab</a></li>
+<li><a href="#koreksi">Koreksi</a></li>
+<li><a href="#contoh">Contoh</a></li>
+<li><a href="#quiz">Quiz</a></li>
+
+</ul>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="circle circle1"></div>
+<div class="circle circle2"></div>
+<div class="circle circle3"></div>
+
+<img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+class="character character1">
+
+<img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png"
+class="character character2">
+
+<div class="hero-content" data-aos="zoom-in">
+
+<div class="badge">
+✨ Website Pembelajaran Interaktif
+</div>
+
+<h1>
+Memahami
+<span>Rekonsiliasi Fiskal</span>
+Dengan Mudah
+</h1>
+
+<p>
+
+Website pembelajaran modern yang membahas pengertian rekonsiliasi fiskal,
+beda tetap, beda waktu, koreksi fiskal,
+contoh soal lengkap, perhitungan PKP,
+hingga quiz interaktif.
+
+</p>
+
+<div class="hero-buttons">
+
+<a href="#pengertian" class="btn">
+Mulai Belajar
+</a>
+
+<a href="#quiz" class="btn btn2">
+Kerjakan Quiz
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FITUR -->
+
+<section>
+
+<div class="section-title">
+
+<h2>Kenapa Website Ini Menarik?</h2>
+
+<p>
+Belajar rekonsiliasi fiskal menjadi lebih mudah dan modern
+</p>
+
+</div>
+
+<div class="grid">
+
+<div class="card">
+
+<i class="fa-solid fa-wand-magic-sparkles"></i>
+
+<h3>Animasi Modern</h3>
+
+<p>
+
+Website dilengkapi animasi floating, efek hover modern,
+transisi halus, dan tampilan premium.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-book-open-reader"></i>
+
+<h3>Materi Lengkap</h3>
+
+<p>
+
+Semua materi rekonsiliasi fiskal dijelaskan lengkap dan detail berdasarkan file kelompok.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-gamepad"></i>
+
+<h3>Quiz Interaktif</h3>
+
+<p>
+
+Terdapat quiz interaktif agar pembelajaran lebih menarik dan tidak membosankan.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PENGERTIAN -->
+
+<section id="pengertian">
+
+<div class="section-title">
+
+<h2>Pengertian Rekonsiliasi Fiskal</h2>
+
+<p>
+Penyesuaian laporan komersial dan fiskal
+</p>
+
+</div>
+
+<div class="grid">
+
+<div class="card">
+
+<i class="fa-solid fa-scale-balanced"></i>
+
+<h3>Definisi</h3>
+
+<p>
+
+Rekonsiliasi fiskal atau koreksi fiskal adalah proses penyesuaian antara laporan keuangan komersial dengan ketentuan perpajakan untuk menghasilkan penghasilan neto atau laba sesuai peraturan pajak.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-building-columns"></i>
+
+<h3>Penyebab</h3>
+
+<p>
+
+Laporan komersial disusun berdasarkan Standar Akuntansi Keuangan sedangkan laporan fiskal mengikuti ketentuan perpajakan sehingga muncul perbedaan perlakuan transaksi.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-file-circle-check"></i>
+
+<h3>Tujuan</h3>
+
+<p>
+
+Memudahkan Wajib Pajak dalam menghitung PKP, menghitung PPh, menyusun SPT Tahunan, dan menyusun laporan fiskal.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PENYEBAB -->
+
+<section id="penyebab">
+
+<div class="section-title">
+
+<h2>Penyebab Terjadinya Rekonsiliasi Fiskal</h2>
+
+<p>
+Perbedaan antara akuntansi komersial dan fiskal
+</p>
+
+</div>
+
+<div class="flex">
+
+<div class="box blue">
+
+<h3>📌 Beda Tetap</h3>
+
+<ul>
+
+<li>Penghasilan sebagai objek pajak</li>
+<li>Penghasilan dikenakan PPh Final</li>
+<li>Penghasilan bukan objek pajak</li>
+<li>Biaya pengurang penghasilan bruto</li>
+<li>Biaya bukan pengurang penghasilan bruto</li>
+<li>Perbedaan permanen</li>
+
+</ul>
+
+</div>
+
+<div class="box green">
+
+<h3>⏳ Beda Waktu</h3>
+
+<ul>
+
+<li>Perbedaan penyusutan/amortisasi</li>
+<li>Perbedaan metode persediaan</li>
+<li>Cash basis dan accrual basis</li>
+<li>Kompensasi kerugian fiskal</li>
+<li>Perbedaan sementara</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- TIMELINE -->
+
+<section>
+
+<div class="section-title">
+
+<h2>Alur Rekonsiliasi Fiskal</h2>
+
+<p>
+Tahapan proses rekonsiliasi fiskal
+</p>
+
+</div>
+
+<div class="timeline">
+
+<div class="timeline-item">
+
+<div class="timeline-icon">
+<i class="fa-solid fa-file-invoice"></i>
+</div>
+
+<div class="timeline-content">
+<h3>Laporan Komersial</h3>
+<p>
+Perusahaan menyusun laporan berdasarkan Standar Akuntansi Keuangan.
+</p>
+</div>
+
+</div>
+
+<div class="timeline-item">
+
+<div class="timeline-icon">
+<i class="fa-solid fa-scale-balanced"></i>
+</div>
+
+<div class="timeline-content">
+<h3>Identifikasi Perbedaan</h3>
+<p>
+Mencari transaksi yang perlakuannya berbeda antara komersial dan fiskal.
+</p>
+</div>
+
+</div>
+
+<div class="timeline-item">
+
+<div class="timeline-icon">
+<i class="fa-solid fa-plus-minus"></i>
+</div>
+
+<div class="timeline-content">
+<h3>Koreksi Fiskal</h3>
+<p>
+Melakukan koreksi positif dan negatif terhadap transaksi tertentu.
+</p>
+</div>
+
+</div>
+
+<div class="timeline-item">
+
+<div class="timeline-icon">
+<i class="fa-solid fa-calculator"></i>
+</div>
+
+<div class="timeline-content">
+<h3>Menghitung PKP</h3>
+<p>
+Menghasilkan Penghasilan Kena Pajak sebagai dasar menghitung PPh.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- KOREKSI -->
+
+<section id="koreksi">
+
+<div class="section-title">
+
+<h2>Jenis Koreksi Fiskal</h2>
+
+<p>
+Koreksi Positif dan Negatif
+</p>
+
+</div>
+
+<div class="flex">
+
+<div class="box red">
+
+<h3>➕ Koreksi Fiskal Positif</h3>
+
+<ul>
+
+<li>Biaya untuk pemegang saham</li>
+<li>Pembentukan dana cadangan</li>
+<li>Natura dan kenikmatan</li>
+<li>Pajak Penghasilan</li>
+<li>Sanksi administrasi</li>
+<li>Selisih penyusutan komersial di atas fiskal</li>
+<li>Biaya yang ditangguhkan pengakuannya</li>
+
+</ul>
+
+</div>
+
+<div class="box orange">
+
+<h3>➖ Koreksi Fiskal Negatif</h3>
+
+<ul>
+
+<li>Penghasilan objek PPh Final</li>
+<li>Penghasilan bukan objek pajak</li>
+<li>Selisih penyusutan komersial di bawah fiskal</li>
+<li>Penghasilan yang ditangguhkan pengakuannya</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTOH SOAL -->
+
+<section id="contoh">
+
+<div class="section-title">
+
+<h2>Contoh Soal Rekonsiliasi Fiskal</h2>
+
+<p>
+PT Maju Bersama Tahun 2025
+</p>
+
+</div>
+
+<div class="card">
+
+<p style="line-height:2;">
+
+PT Maju Bersama memperoleh laba komersial sebesar Rp500.000.000.
+
+<br><br>
+
+Ditemukan transaksi berikut:
+
+<br><br>
+
+1. Denda pajak Rp12.000.000
+<br>
+
+2. Biaya liburan keluarga direktur Rp18.000.000
+<br>
+
+3. Pendapatan bunga deposito Rp15.000.000
+<br>
+
+4. Penyusutan komersial Rp40.000.000 sedangkan fiskal Rp30.000.000
+<br>
+
+5. Cadangan piutang tak tertagih Rp10.000.000
+<br>
+
+6. Pembayaran PPh Badan Rp25.000.000
+
+</p>
+
+</div>
+
+<br><br>
+
+<div class="table-container">
+
+<table>
+
+<tr>
+
+<th>Keterangan</th>
+<th>Komersial</th>
+<th>Koreksi Positif</th>
+<th>Koreksi Negatif</th>
+<th>Fiskal</th>
+
+</tr>
+
+<tr>
+<td>Pendapatan Bunga Deposito</td>
+<td>15.000.000</td>
+<td>-</td>
+<td>15.000.000</td>
+<td>0</td>
+</tr>
+
+<tr>
+<td>Denda Pajak</td>
+<td>12.000.000</td>
+<td>12.000.000</td>
+<td>-</td>
+<td>0</td>
+</tr>
+
+<tr>
+<td>Biaya Liburan Direktur</td>
+<td>18.000.000</td>
+<td>18.000.000</td>
+<td>-</td>
+<td>0</td>
+</tr>
+
+<tr>
+<td>Penyusutan</td>
+<td>40.000.000</td>
+<td>10.000.000</td>
+<td>-</td>
+<td>30.000.000</td>
+</tr>
+
+<tr>
+<td>Cadangan Piutang</td>
+<td>10.000.000</td>
+<td>10.000.000</td>
+<td>-</td>
+<td>0</td>
+</tr>
+
+<tr>
+<td>PPh Badan</td>
+<td>25.000.000</td>
+<td>25.000.000</td>
+<td>-</td>
+<td>0</td>
+</tr>
+
+</table>
+
+</div>
+
+</section>
+
+<!-- PEMBAHASAN -->
+
+<section>
+
+<div class="section-title">
+
+<h2>Pembahasan Detail</h2>
+
+<p>
+Penjelasan setiap transaksi
+</p>
+
+</div>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>1. Denda Pajak</h3>
+
+<p>
+
+Denda pajak termasuk biaya yang tidak boleh menjadi pengurang penghasilan bruto sehingga dilakukan koreksi fiskal positif.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>2. Biaya Liburan Direktur</h3>
+
+<p>
+
+Biaya pribadi direktur tidak berhubungan langsung dengan kegiatan usaha sehingga tidak diperbolehkan secara fiskal.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>3. Pendapatan Deposito</h3>
+
+<p>
+
+Pendapatan bunga deposito telah dikenakan PPh Final sehingga dilakukan koreksi fiskal negatif.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>4. Penyusutan</h3>
+
+<p>
+
+Penyusutan komersial lebih besar dari fiskal sehingga terdapat koreksi positif sebesar Rp10.000.000.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>5. Cadangan Piutang</h3>
+
+<p>
+
+Cadangan piutang tidak boleh menjadi pengurang penghasilan bruto kecuali usaha tertentu.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>6. PPh Badan</h3>
+
+<p>
+
+PPh Badan tidak boleh dibebankan secara fiskal sehingga dilakukan koreksi positif.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PERHITUNGAN -->
+
+<section>
+
+<div class="section-title">
+
+<h2>Perhitungan PKP</h2>
+
+<p>
+Langkah menghitung Penghasilan Kena Pajak
+</p>
+
+</div>
+
+<div class="formula-box">
+
+<h3>Perhitungan Rekonsiliasi Fiskal</h3>
+
+<div class="formula">
+
+Laba Komersial = Rp500.000.000
+<br><br>
+
++ Koreksi Positif = Rp75.000.000
+<br><br>
+
+- Koreksi Negatif = Rp15.000.000
+<br><br>
+
+<span class="result">
+PKP = Rp560.000.000
+</span>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- QUIZ -->
+
+<section id="quiz">
+
+<div class="section-title">
+
+<h2>Quiz Interaktif</h2>
+
+<p>
+10 Pertanyaan Rekonsiliasi Fiskal
+</p>
+
+</div>
+
+<div class="quiz-container">
+
+<script>
+
+const questions = [
+
+["Apa pengertian rekonsiliasi fiskal?","Penyesuaian laporan komersial dengan ketentuan perpajakan."],
+
+["Apa tujuan rekonsiliasi fiskal?","Menghasilkan Penghasilan Kena Pajak."],
+
+["Apa itu beda tetap?","Perbedaan permanen antara komersial dan fiskal."],
+
+["Apa itu beda waktu?","Perbedaan sementara yang akan hilang di masa depan."],
+
+["Denda pajak termasuk koreksi apa?","Koreksi fiskal positif."],
+
+["Pendapatan deposito termasuk koreksi apa?","Koreksi fiskal negatif."],
+
+["Apa dasar laporan komersial?","Standar Akuntansi Keuangan."],
+
+["Apa dasar laporan fiskal?","Ketentuan perpajakan."],
+
+["Apa itu PKP?","Penghasilan Kena Pajak."],
+
+["Berapa PKP PT Maju Bersama?","Rp560.000.000"]
+
+];
+
+document.write(
+
+questions.map((q,i)=>`
+
+<div class="quiz-card">
+
+<h3>${i+1}. ${q[0]}</h3>
+
+<button onclick="toggleAnswer(${i})">
+Lihat Jawaban
+</button>
+
+<div class="answer" id="ans${i}">
+${q[1]}
+</div>
+
+</div>
+
+`).join('')
+
+);
+
+</script>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<h3>Website Rekonsiliasi Fiskal</h3>
+
+<p>
+Tugas Kelompok 1 Akuntansi Perpajakan
+</p>
+
+<p>
+© 2026
+</p>
+
+</footer>
+
+<!-- SCRIPT -->
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+
+AOS.init({
+duration:1200,
+once:true
+});
+
+function toggleAnswer(i){
+
+let ans=document.getElementById("ans"+i);
+
+if(ans.style.display==="block"){
+ans.style.display="none";
+}else{
+ans.style.display="block";
+}
+
+}
+
+</script>
+
+</body>
+</html>
